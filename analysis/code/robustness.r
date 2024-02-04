@@ -95,19 +95,13 @@ plot_nonwhite_stops_equiv <- plot(type="equiv",mc.nonwhite,
                                main = "Estimated ATT (iphones); DV = Non-White Stops",
                                ylab = "Effect on Non-White Stops",
                                show.points=FALSE)
-
-pdf(file = "~/Dropbox/NYPD iPhones/analysis/output/figures/fig3_stops_placebo_preperiod.pdf",
-    width = 8.5,
-    height = 11)
-plot_iphone_stops_equiv / plot_nonwhite_stops_equiv
-dev.off()
-
+placebo.preperiod  <- plot_iphone_stops_equiv / plot_nonwhite_stops_equiv
 
 
 png(file = "~/Dropbox/NYPD iPhones/analysis/output/figures/fig3_stops_placebo_preperiod.png",
     width = 850,
     height = 1100)
-plot_iphone_stops_equiv / plot_nonwhite_stops_equiv
+print(placebo.preperiod)
 dev.off()
 
 

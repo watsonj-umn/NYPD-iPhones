@@ -1,5 +1,3 @@
-## sink("~/Dropbox/NYPD iPhones/analysis/output/iphone_stops_etwfe.txt")
-
 set.seed(42323)
 library("kableExtra")
 library(modelsummary)
@@ -257,8 +255,7 @@ fig1  <- ggplot(emfx.es %>% filter(event<=19 & event >= -3),
 png(file = "~/Dropbox/NYPD iPhones/analysis/output/figures/fig1_v2.png",
     width = 850,
     height = 400)
-
-fig1
+print(fig1)
 dev.off()
 
 mod_es_stops = emfx(etwfe.stops.baseline, type = "event", post_only = FALSE)
@@ -291,7 +288,7 @@ figS2  <- ggplot(emfx.es.s2 %>% filter(event<=19 & event >= -3),
 png(file = "~/Dropbox/NYPD iPhones/analysis/output/figures/fig_s2_v2.png",
     width = 850,
     height = 400)
-figS2
+print(figS2)
 dev.off()
 
 
