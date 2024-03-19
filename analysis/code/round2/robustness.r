@@ -13,7 +13,7 @@ library(didimputation)
 library(RStata)
 
 input  <- "~/Dropbox/NYPD iPhones/analysis/input/"
-output  <- "~/Dropbox/NYPD iPhones/analysis/output/"
+output  <- "~/Dropbox/NYPD iPhones/analysis/output/round2"
 temp  <- "~/Dropbox/NYPD iPhones/analysis/temp/"
 
 
@@ -46,7 +46,7 @@ mc.stops <- fect(data=df,stops ~ iphone,
                          nboots=1000,
                          CV=TRUE)
 
-unit.mc.stops  <- mc_summarize(mc.stops)
+mod.mc.stops  <- mc_summarize(mc.stops)
 
 mc.nonwhite <- fect(data=df,nonwhite ~ iphone,
                          index=c("precinct","year_week"),
@@ -98,7 +98,7 @@ plot_nonwhite_stops_equiv <- plot(type="equiv",mc.nonwhite,
 placebo.preperiod  <- plot_iphone_stops_equiv / plot_nonwhite_stops_equiv
 
 
-png(file = "~/Dropbox/NYPD iPhones/analysis/output/figures/fig3_stops_placebo_preperiod.png",
+png(file = file.path(output,"figures/fig3_stops_placebo_preperiod.png"),
     width = 850,
     height = 1100)
 print(placebo.preperiod)
